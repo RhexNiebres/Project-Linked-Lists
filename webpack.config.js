@@ -2,33 +2,34 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',  
+  entry: './src/index.js', // Your entry point
   output: {
-    path: path.resolve(__dirname, 'dist'),  
-    filename: 'bundle.js',  
-  },
-  mode: 'development',  
-  devServer: {
-    static: './dist', 
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
-        test: /\.js$/, // Process .js files
+        test: /\.js$/, // Look for JavaScript files
         exclude: /node_modules/, // Exclude node_modules
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'], // Transpile modern JavaScript to older versions
-            sourceType: 'module', // Ensure the JavaScript is treated as a module
+            presets: ['@babel/preset-env'], // Use @babel/preset-env for transforming modern JS
+            plugins: [
+              '@babel/plugin-transform-modules-commonjs', // Ensure modules are properly transformed
+            ],
+            sourceType: 'module', // Explicitly set the source type to module
           },
         },
-      },
+      },                  
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',  
+      template: './src/index.html', // Adjust this if your HTML file is in a different location
+      filename: 'index.html',
     }),
   ],
+  mode: 'development',
 };
