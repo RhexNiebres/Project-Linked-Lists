@@ -47,21 +47,27 @@ class LinkedList{
     return size; 
   }
 
-  firstNode(){
+  headNode(){ //a method to return the head which is the first node in the linkedList
     return this.head.value;
   }
 
-  tail(){
+  tail(){ // a method to return the tail which is the last node in the linkedList
     let currentNode = this.head;
 
     if (currentNode === null) {
       return null;
     }
 
-    while (currentNode.nextNode !== null) {
+    while (currentNode.nextNode !== null) { //tranverse to the end of the list
       currentNode = currentNode.nextNode;
     }
 
+    return currentNode;
+  }
+
+  atIndex(index) {
+    let current = this.head;
+    let currentIndex = 0
   }
 }
 
