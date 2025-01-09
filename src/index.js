@@ -20,14 +20,37 @@ class LinkedList{
       while(currentNode.nextNode !== null){
         currentNode = currentNode.nextNode;
       }
+      currentNode.nextNode = newNode;
     }
   }
 
   prepend(value) {
   const newNode = new Node(value);
+    //if list is empty make variable as the head
+    if(this.head === null){ 
+      this.head = newNode;
+    //else if not empty make the variable as the new head of the list
+    }else{
+      newNode.nextNode = this.head; 
+      this.head = newNode;
+    }
+  }
 
-  if(this.head === null){
-    this.head = newNode;
+  size(){
+    let size = 0
+    let currentNode = this.head;
+
+    while (currentNode !== null){
+      size++;
+      currentNode = currentNode.nextNode;
+    }
+    return size; 
   }
+
+  head(){
+    return this.head.value;
   }
+
+  tail
 }
+
