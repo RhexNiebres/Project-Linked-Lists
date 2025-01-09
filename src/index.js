@@ -67,7 +67,18 @@ class LinkedList{
 
   atIndex(index) {
     let current = this.head;
-    let currentIndex = 0
+    let counter= 0
+
+    if (index < 0 || index >= this.size()) {//checks if the index is valid 
+      return null;
+    }
+
+    while(counter < index){
+      currentNode = currentNode.nextNode;
+      counter++;
+    }
+    return currentNode;
   }
+  
 }
 
