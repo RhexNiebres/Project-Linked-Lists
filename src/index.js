@@ -1,6 +1,6 @@
 class Node{
   constructor(value){
-    this.value = null;
+    this.value = value;
     this.nextNode = null;
   }
 }
@@ -79,6 +79,36 @@ class LinkedList{
     }
     return currentNode;
   }
-  
+
+  pop(){
+    if (this.head === null) {
+      return null;
+    }
+    //if there is only one node in the list remove it
+    if(this.head.nextNode === null){
+      this.head = null;
+      return;
+    }
+    let currentNode = this.head;
+    
+    while (currentNode.nextNode.nextNode !== null){
+      currentNode = currentNode.nextNode;
+    }
+    currentNode.nextNode = null;// remove last node form list
+  }
+
+  contains(value) {
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.nextNode;
+    }
+    return false;// if value is not in list
+  }
 }
+
 
