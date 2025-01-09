@@ -1,4 +1,4 @@
-import LinkedList from './LinkedList'; 
+import LinkedList from './index'; 
 
 const list = new LinkedList();
 
@@ -8,3 +8,6 @@ list.append("parrot");
 list.append("hamster");
 list.append("snake");
 list.append("turtle");
+
+console.log(list.pop())
+console.log('Popped value:', list.pop());
