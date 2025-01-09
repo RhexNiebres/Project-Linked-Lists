@@ -47,10 +47,21 @@ class LinkedList{
     return size; 
   }
 
-  head(){
+  firstNode(){
     return this.head.value;
   }
 
-  tail
+  tail(){
+    let currentNode = this.head;
+
+    if (currentNode === null) {
+      return null;
+    }
+
+    while (currentNode.nextNode !== null) {
+      currentNode = currentNode.nextNode;
+    }
+
+  }
 }
 
